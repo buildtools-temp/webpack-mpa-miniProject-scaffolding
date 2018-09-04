@@ -1,6 +1,5 @@
-# webpack-mpa-miniProject-scaffolding ()
-开箱即用的多页面webpack脚手架
-本脚手架不合适做单页面，更不大适合用react，vue这样的框架，适合做官网之类的多页面的应用。本脚手架已经简单支持使用ES6，less，模块化，热加载，eslint等功能
+# webpack-mpa-miniProject-scaffolding
+开箱即用的多页面webpack脚手架。本脚手架不合适做单页面，更不大适合用react，vue这样的框架，适合做官网之类的多页面的应用。本脚手架已经简单支持使用ES6，less，模块化，热加载，eslint等功能。
 
 
 ## Build Setup
