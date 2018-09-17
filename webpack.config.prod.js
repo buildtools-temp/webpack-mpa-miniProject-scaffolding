@@ -1,8 +1,8 @@
 /* eslint-disable */
-const webpack = require('webpack');  
-const path = require('path')  
-const HtmlWebpackPlugin = require('html-webpack-plugin');  
-const ExtractTextPlugin = require("extract-text-webpack-plugin");  
+const webpack = require('webpack');
+const path = require('path') ;
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const pageConfig = require('./page.config.js');
@@ -33,14 +33,14 @@ class ChunksFromEntryPlugin {
 
 let webpackConfig = {
   mode: 'production',
-  // 配置入口  
+  // 配置入口
   entry: {},
   devtool: "source-map",
-  // 配置出口  
+  // 配置出口
   output: {
-    path: path.join(__dirname, "./dist/"),  
-    filename: 'static/js/[name].[hash:7].js',  
-    publicPath: '/',  
+    path: path.join(__dirname, "./dist/"),
+    filename: 'static/js/[name].[hash:7].js',
+    publicPath: '/',
   },
   module: {
     rules: [
@@ -100,7 +100,7 @@ let webpackConfig = {
           fallback: 'style-loader',
           use: ['css-loader'],
         }),
-      },      
+      },
       {
         test: /\.less$/,
         use: ExtractTextPlugin.extract({
@@ -118,14 +118,14 @@ let webpackConfig = {
     new ExtractTextPlugin({
      filename: 'static/css/[name].[hash:7].css'
     }),
-    //设置每一次build之前先删除dist  
-    new CleanWebpackPlugin(  
-      ['dist/*',],　     //匹配删除的文件  
-      {  
-          root: __dirname,   //根目录  
-          verbose: true,    //开启在控制台输出信息  
-          dry: false     //启用删除文件  
-      }  
+    //设置每一次build之前先删除dist
+    new CleanWebpackPlugin(
+      ['dist/*',],　     //匹配删除的文件
+      {
+          root: __dirname,   //根目录
+          verbose: true,    //开启在控制台输出信息
+          dry: false     //启用删除文件
+      }
     ),
     new ChunksFromEntryPlugin(),
   ],
@@ -166,7 +166,7 @@ if(pageConfig && Array.isArray(pageConfig)){
       template: path.join(__dirname,`/src/pages/${page.html}`),
       inject: true,
       entry: page.name,
-      chunks: [page.name],  
+      chunks: [page.name],
       inlineSource: '.(js|css)$',
       // minify:false,
       minify: {
